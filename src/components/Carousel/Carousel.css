@@ -11,3 +11,29 @@
   box-shadow: 0px 0px 5px black;
   width: 7vw;
 }
+@media (max-width: 700px) {
+  .carouselItem__img {
+    width: 100%;
+  }
+}
+
+.carouselItem__txt {
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1300px) {
+  .carouselItem__txt {
+    font-size: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 700px) {
+  .carouselItem__txt {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+  }
+}
