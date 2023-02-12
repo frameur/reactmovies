@@ -9,6 +9,7 @@
   display: none;
   object-fit: contain;
   border-radius: 10px;
+  /* width: 50%; */
 }
 
 .tagline {

@@ -6,6 +6,7 @@ import {
   TextField,
   ThemeProvider,
 } from '@mui/material'
+
 import './Search.css'
 import SearchIcon from '@mui/icons-material/Search'
 import { useEffect, useState } from 'react'
@@ -56,8 +57,9 @@ const Search = () => {
         <div className="search">
           <TextField
             style={{ flex: 1 }}
+            id="standard-basic"
             className="searchBox"
-            label="recherche"
+            label="recherche movies ou series"
             variant="filled"
             onChange={(e) => setSearchText(e.target.value)}
           />
@@ -74,6 +76,7 @@ const Search = () => {
           indicatorColor="primary"
           textColor="primary"
           onChange={(event, newValue) => {
+            setSearchText(event.target.value)
             setType(newValue)
             setPage(1)
           }}
