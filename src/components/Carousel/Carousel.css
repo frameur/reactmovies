@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center; /* Centre les éléments horizontalement */
   padding: 10px;
+  max-width: 200px; /* Ajustez cette valeur selon vos besoins */
 }
 
 .carouselItem__img {
@@ -14,7 +15,9 @@
 }
 
 .carouselItem__txt {
-  font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.5rem;
   text-align: center; /* Centre le texte */
   padding: 0 5px; /* Ajoute un peu de padding pour l'espace */
 }

@@ -10,6 +10,11 @@ const handleDragStart = (e) => e.preventDefault()
 const Gallery = ({ id, media_type }) => {
   const [credits, setCredits] = useState([])
 
+  // Fonction pour tronquer le texte
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text
+  }
+
   const items = credits.map((c) => (
     <div className="carouselItem" key={c.id}>
       <img
@@ -23,7 +28,7 @@ const Gallery = ({ id, media_type }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <b className="carouselItem__txt">{c?.name}</b>
+        <b className="carouselItem__txt">{truncateText(c?.name, 15)}</b>
       </a>
     </div>
   ))
