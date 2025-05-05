@@ -60,7 +60,9 @@ const Gallery = ({ id, media_type }) => {
       disableButtonsControls
       responsive={responsive}
       items={items}
-      // autoPlay
+      autoPlay // Active le défilement automatique
+      autoPlayInterval={3000} // Intervalle de 3 secondes entre les défilements
+      duration={1000} // Durée de la transition (1 seconde)
     />
   )
 }
