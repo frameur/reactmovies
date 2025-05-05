@@ -3,12 +3,14 @@
 .ContentModal__landscape {
   object-fit: contain;
   border-radius: 10px;
+  max-width: 100%; /* Pour que l'image ne déborde pas */
 }
 
 .ContentModal__portrait {
   display: none;
   object-fit: contain;
   border-radius: 10px;
+  max-width: 100%; /* Pour que l'image ne déborde pas */
   /* width: 50%; */
 }
 
@@ -21,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  min-height: 100vh; /* Utilisez min-height pour éviter les problèmes de hauteur */
   width: 100%;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -36,7 +38,7 @@
 .ContentModal__about {
   padding: 10px;
   width: 95%;
-  height: 90%;
+  /* height: 90%; */ /* Supprimez ou ajustez la hauteur */
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
@@ -45,13 +47,14 @@
 }
 
 .ContentModal__title {
-  height: 12%;
-  font-size: 5vw;
+  height: auto; /* Utilisez auto ou une valeur relative */
+  font-size: 7vw; /* Adaptez la taille de la police */
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ee0d76;
+  margin-bottom: 10px; /* Ajoutez un peu de marge en bas */
 }
 
 .ContentModal__description {
@@ -63,10 +66,32 @@
   scrollbar-width: thin; /* Firefox */
   box-shadow: inset 0 0 5px #e6dada;
   text-align: justify;
+  font-size: 1rem; /* Taille de police de base */
 }
 
 .ContentModal__description::-webkit-scrollbar {
   display: none;
+}
+
+/* Media queries pour différents écrans */
+@media (max-width: 480px) {
+  /* Règles pour les petits écrans */
+  .ContentModal__title {
+    font-size: 10vw; /* Réduisez la taille de la police */
+  }
+  .ContentModal__description {
+    font-size: 0.9rem; /* Réduisez la taille de la police */
+  }
+}
+
+@media (min-width: 768px) {
+  /* Règles pour les écrans moyens */
+  .ContentModal__title {
+    font-size: 5vw; /* Adaptez la taille de la police */
+  }
+  .ContentModal__description {
+    font-size: 1.1rem; /* Adaptez la taille de la police */
+  }
 }
 
 @media (min-width: 835px) {
@@ -91,6 +116,6 @@
     font-size: 3.5vw;
   }
   .ContentModal__description {
-    font-size: 22px;
+    font-size: 1.2rem;
   }
 }
