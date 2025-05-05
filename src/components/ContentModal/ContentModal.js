@@ -33,6 +33,11 @@ export default function TransitionsModal({ children, media_type, id }) {
   const [open, setOpen] = useState(false)
   const [content, setContent] = useState()
   const [video, setVideo] = useState()
+  const [showFullDescription, setShowFullDescription] = useState(false)
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription)
+  }
 
   const handleOpen = () => {
     setOpen(true)
@@ -124,8 +129,17 @@ export default function TransitionsModal({ children, media_type, id }) {
                   )}
 
                   <span className="ContentModal__description">
-                    {content.overview}
+                    {showFullDescription
+                      ? content.overview
+                      : content.overview?.slice(0, 200) + '...'}
                   </span>
+                  <Button
+                    onClick={toggleDescription}
+                    variant="outlined"
+                    color="primary"
+                  >
+                    {showFullDescription ? 'Réduire' : 'Lire la suite'}
+                  </Button>
 
                   <div>
                     <Carousel id={id} media_type={media_type} />
