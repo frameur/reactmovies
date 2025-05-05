@@ -12,19 +12,19 @@ const Gallery = ({ id, media_type }) => {
 
   const items = credits.map((c) => (
     <div className="carouselItem" key={c.id}>
-      <img
-        src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-        alt={c?.name}
-        onDragStart={handleDragStart}
-        className="carouselItem__img"
-      />
       <a
         href={`https://www.themoviedb.org/person/${c.id}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <b className="carouselItem__txt">{c?.name}</b>
+        <img
+          src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
+          alt={c?.name}
+          onDragStart={handleDragStart}
+          className="carouselItem__img"
+        />
       </a>
+      <b className="carouselItem__txt">{c?.name}</b>
     </div>
   ))
 
