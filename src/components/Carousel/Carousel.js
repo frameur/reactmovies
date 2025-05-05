@@ -11,14 +11,20 @@ const Gallery = ({ id, media_type }) => {
   const [credits, setCredits] = useState([])
 
   const items = credits.map((c) => (
-    <div className="carouselItem">
+    <div className="carouselItem" key={c.id}>
       <img
         src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
         alt={c?.name}
         onDragStart={handleDragStart}
         className="carouselItem__img"
       />
-      <b className="carouselItem__txt">{c?.name}</b>
+      <a
+        href={`https://www.themoviedb.org/person/${c.id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <b className="carouselItem__txt">{c?.name}</b>
+      </a>
     </div>
   ))
 
@@ -36,7 +42,7 @@ const Gallery = ({ id, media_type }) => {
 
   const fetchCredits = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=7da52767b907afa2fc1a26fa44ff20c5&language=fr-FR`
+      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=fr-FR`
     )
     setCredits(data.cast)
   }
