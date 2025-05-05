@@ -26,7 +26,7 @@
   min-height: 100vh; /* Utilisez min-height pour éviter les problèmes de hauteur */
   width: 100%;
   overflow-y: scroll;
-  /* scrollbar-width: none; */
+  scrollbar-width: none;
   color: blanchedalmond;
   background: #1f1c1c;
 }
